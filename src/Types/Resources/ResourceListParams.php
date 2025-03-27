@@ -17,7 +17,7 @@ class ResourceListParams
     /**
      * Create a new ResourceListParams instance
      *
-     * @param string|null $cursor The cursor for pagination
+     * @param  string|null  $cursor  The cursor for pagination
      */
     public function __construct(?string $cursor = null)
     {
@@ -26,8 +26,6 @@ class ResourceListParams
 
     /**
      * Convert the params to an array for JSON serialization
-     *
-     * @return array
      */
     public function toArray(): array
     {
@@ -43,8 +41,7 @@ class ResourceListParams
     /**
      * Create params from an array
      *
-     * @param array $data The data array
-     * @return self
+     * @param  array  $data  The data array
      */
     public static function fromArray(array $data): self
     {

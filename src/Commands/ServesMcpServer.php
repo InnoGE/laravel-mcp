@@ -75,7 +75,7 @@ trait ServesMcpServer
 
     /**
      * Get the resource providers to be registered with the MCP server
-     * 
+     *
      * @return ResourceProviderInterface[] Array of resource provider instances
      */
     private function getResources(): array

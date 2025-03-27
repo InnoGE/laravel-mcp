@@ -3,8 +3,8 @@
 namespace InnoGE\LaravelMcp\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
 use InnoGE\LaravelMcp\LaravelMcpServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {

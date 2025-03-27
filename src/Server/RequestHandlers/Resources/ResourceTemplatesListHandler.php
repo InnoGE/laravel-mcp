@@ -22,7 +22,7 @@ class ResourceTemplatesListHandler implements RequestHandler
     /**
      * Constructor
      *
-     * @param ResourceProviderInterface $resourceProvider The resource provider
+     * @param  ResourceProviderInterface  $resourceProvider  The resource provider
      */
     public function __construct(ResourceProviderInterface $resourceProvider)
     {
@@ -32,7 +32,7 @@ class ResourceTemplatesListHandler implements RequestHandler
     /**
      * Check if this handler can handle the given method
      *
-     * @param string $method The method name to check
+     * @param  string  $method  The method name to check
      * @return bool True if this handler can handle the method
      */
     public function canHandle(string $method): bool
@@ -43,8 +43,8 @@ class ResourceTemplatesListHandler implements RequestHandler
     /**
      * Handle the resources/templates/list request
      *
-     * @param string $method The method name
-     * @param array|null $params The method parameters
+     * @param  string  $method  The method name
+     * @param  array|null  $params  The method parameters
      * @return array The response
      *
      * @throws JsonRpcError If the request fails
@@ -57,11 +57,11 @@ class ResourceTemplatesListHandler implements RequestHandler
 
         try {
             $templates = $this->resourceProvider->listResourceTemplates();
-            
+
             return (new ResourceTemplatesListResult($templates))->toArray();
         } catch (\Exception $e) {
             throw new JsonRpcError(
-                'Failed to list resource templates: ' . $e->getMessage(),
+                'Failed to list resource templates: '.$e->getMessage(),
                 JsonRpcError::INTERNAL_ERROR
             );
         }

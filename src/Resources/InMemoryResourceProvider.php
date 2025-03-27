@@ -37,9 +37,8 @@ class InMemoryResourceProvider implements ResourceProviderInterface
     /**
      * Add a resource to the provider
      *
-     * @param ResourceItem $resource The resource to add
-     * @param ResourceContent|null $content The resource content (optional)
-     * @return void
+     * @param  ResourceItem  $resource  The resource to add
+     * @param  ResourceContent|null  $content  The resource content (optional)
      */
     public function addResource(ResourceItem $resource, ResourceContent $content): void
     {
@@ -50,8 +49,7 @@ class InMemoryResourceProvider implements ResourceProviderInterface
     /**
      * Add a resource template to the provider
      *
-     * @param ResourceTemplate $template The template to add
-     * @return void
+     * @param  ResourceTemplate  $template  The template to add
      */
     public function addResourceTemplate(ResourceTemplate $template): void
     {
@@ -61,8 +59,8 @@ class InMemoryResourceProvider implements ResourceProviderInterface
     /**
      * List resources
      *
-     * @param string|null $cursor Pagination cursor
-     * @param int $limit Maximum number of items to return
+     * @param  string|null  $cursor  Pagination cursor
+     * @param  int  $limit  Maximum number of items to return
      * @return array{items: ResourceItem[], nextCursor: ?string}
      */
     public function listResources(?string $cursor = null, int $limit = 100): array
@@ -114,14 +112,14 @@ class InMemoryResourceProvider implements ResourceProviderInterface
     /**
      * Read a resource
      *
-     * @param string $uri The URI of the resource to read
+     * @param  string  $uri  The URI of the resource to read
      * @return ResourceContent[] The resource contents
      *
      * @throws \Exception If the resource cannot be read
      */
     public function readResource(string $uri): array
     {
-        if (!isset($this->resourceContents[$uri])) {
+        if (! isset($this->resourceContents[$uri])) {
             throw new \Exception("Resource not found: {$uri}");
         }
 
@@ -131,7 +129,7 @@ class InMemoryResourceProvider implements ResourceProviderInterface
     /**
      * Check if a resource exists
      *
-     * @param string $uri The URI of the resource
+     * @param  string  $uri  The URI of the resource
      * @return bool True if the resource exists
      */
     public function resourceExists(string $uri): bool

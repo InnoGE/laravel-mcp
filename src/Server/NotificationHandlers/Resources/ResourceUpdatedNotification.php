@@ -7,7 +7,7 @@ use InnoGE\LaravelMcp\Protocol\NotificationHandler;
 
 /**
  * ResourceUpdatedNotification
- * 
+ *
  * Sends a notification when a resource has been updated.
  */
 class ResourceUpdatedNotification implements NotificationHandler
@@ -20,7 +20,7 @@ class ResourceUpdatedNotification implements NotificationHandler
     /**
      * Constructor
      *
-     * @param MCPProtocol $protocol The protocol to use for sending notifications
+     * @param  MCPProtocol  $protocol  The protocol to use for sending notifications
      */
     public function __construct(MCPProtocol $protocol)
     {
@@ -29,16 +29,16 @@ class ResourceUpdatedNotification implements NotificationHandler
 
     /**
      * Send a notification that a resource has been updated
-     * 
-     * @param string $uri The URI of the resource that was updated
+     *
+     * @param  string  $uri  The URI of the resource that was updated
      */
     public function notify(string $uri): void
     {
         $this->protocol->sendNotification('notifications/resources/updated', [
-            'uri' => $uri
+            'uri' => $uri,
         ]);
     }
-    
+
     /**
      * Handle a notification
      *
@@ -52,7 +52,7 @@ class ResourceUpdatedNotification implements NotificationHandler
         // This is an outgoing notification only, we don't handle incoming notifications
         throw new \Exception('This handler only sends outgoing notifications, not handles incoming ones');
     }
-    
+
     /**
      * Check if this handler can handle the given method
      *

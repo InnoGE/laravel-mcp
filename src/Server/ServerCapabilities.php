@@ -61,11 +61,11 @@ class ServerCapabilities
     {
         $this->supportsResources = true;
         $this->resourcesConfig = [];
-        
+
         if ($subscribeSupport) {
             $this->resourcesConfig['subscribe'] = true;
         }
-        
+
         if ($listChangedSupport) {
             $this->resourcesConfig['listChanged'] = true;
         }

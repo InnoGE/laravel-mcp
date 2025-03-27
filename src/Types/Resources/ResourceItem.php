@@ -37,11 +37,11 @@ class ResourceItem
     /**
      * Create a new ResourceItem instance
      *
-     * @param string $uri The URI of the resource
-     * @param string $name The name of the resource
-     * @param string|null $description The description of the resource
-     * @param string|null $mimeType The MIME type of the resource
-     * @param int|null $size The size of the resource in bytes
+     * @param  string  $uri  The URI of the resource
+     * @param  string  $name  The name of the resource
+     * @param  string|null  $description  The description of the resource
+     * @param  string|null  $mimeType  The MIME type of the resource
+     * @param  int|null  $size  The size of the resource in bytes
      */
     public function __construct(
         string $uri,
@@ -59,8 +59,6 @@ class ResourceItem
 
     /**
      * Convert the resource item to an array for JSON serialization
-     *
-     * @return array
      */
     public function toArray(): array
     {
@@ -87,8 +85,7 @@ class ResourceItem
     /**
      * Create a resource item from an array
      *
-     * @param array $data The data array
-     * @return self
+     * @param  array  $data  The data array
      */
     public static function fromArray(array $data): self
     {

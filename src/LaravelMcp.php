@@ -8,8 +8,8 @@ use InnoGE\LaravelMcp\Server\NotificationHandlers\InitializedHandler;
 use InnoGE\LaravelMcp\Server\ServerCapabilities;
 use InnoGE\LaravelMcp\Transports\StdioTransport;
 
-class LaravelMcp {
-
+class LaravelMcp
+{
     /**
      * Create a new MCP server with STDIO transport
      *

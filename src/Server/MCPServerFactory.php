@@ -35,9 +35,9 @@ class MCPServerFactory
         // Create server capabilities with tools and resources
         $capabilities = new ServerCapabilities;
         $capabilities->withTools(['schemas' => $toolRegistry->getToolSchemas()]);
-        
+
         // Add resource capabilities if we have any resource providers
-        if (!empty($resourceProviders)) {
+        if (! empty($resourceProviders)) {
             $capabilities->withResources(true, true);
         }
 
@@ -51,13 +51,13 @@ class MCPServerFactory
         // Setup tool server with handlers
         $toolServer = new ToolServer($logger);
         $toolServer->registerHandlers($server, $toolRegistry);
-        
+
         // Set up resource providers if any
         foreach ($resourceProviders as $resourceProvider) {
             $server->setupResourceFeature($resourceProvider);
-            
+
             if ($logger) {
-                $logger->debug('Registered resource provider: ' . get_class($resourceProvider));
+                $logger->debug('Registered resource provider: '.get_class($resourceProvider));
             }
         }
 

@@ -374,7 +374,7 @@ class MCPProtocol
      * @param  mixed  $id  The ID from the request (null for notifications)
      * @param  int  $code  The error code
      * @param  string  $message  The error message
-     * @param mixed|null $data  Additional error data (optional)
+     * @param  mixed|null  $data  Additional error data (optional)
      */
     private function sendErrorResponse(mixed $id, int $code, string $message, mixed $data = null): void
     {

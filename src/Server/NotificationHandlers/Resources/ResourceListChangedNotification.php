@@ -7,7 +7,7 @@ use InnoGE\LaravelMcp\Protocol\NotificationHandler;
 
 /**
  * ResourceListChangedNotification
- * 
+ *
  * Sends a notification when the list of available resources has changed.
  */
 class ResourceListChangedNotification implements NotificationHandler
@@ -20,7 +20,7 @@ class ResourceListChangedNotification implements NotificationHandler
     /**
      * Constructor
      *
-     * @param MCPProtocol $protocol The protocol to use for sending notifications
+     * @param  MCPProtocol  $protocol  The protocol to use for sending notifications
      */
     public function __construct(MCPProtocol $protocol)
     {
@@ -34,7 +34,7 @@ class ResourceListChangedNotification implements NotificationHandler
     {
         $this->protocol->sendNotification('notifications/resources/list_changed');
     }
-    
+
     /**
      * Handle a notification
      *
@@ -48,7 +48,7 @@ class ResourceListChangedNotification implements NotificationHandler
         // This is an outgoing notification only, we don't handle incoming notifications
         throw new \Exception('This handler only sends outgoing notifications, not handles incoming ones');
     }
-    
+
     /**
      * Check if this handler can handle the given method
      *

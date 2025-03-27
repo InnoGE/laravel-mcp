@@ -32,10 +32,10 @@ class ResourceContent
     /**
      * Create a new ResourceContent instance
      *
-     * @param string $uri The URI of the resource
-     * @param string|null $mimeType The MIME type of the resource
-     * @param string|null $text The text content of the resource
-     * @param string|null $blob The base64-encoded binary content of the resource
+     * @param  string  $uri  The URI of the resource
+     * @param  string|null  $mimeType  The MIME type of the resource
+     * @param  string|null  $text  The text content of the resource
+     * @param  string|null  $blob  The base64-encoded binary content of the resource
      */
     public function __construct(
         string $uri,
@@ -52,10 +52,9 @@ class ResourceContent
     /**
      * Create a text content resource
      *
-     * @param string $uri The URI of the resource
-     * @param string $text The text content
-     * @param string|null $mimeType The MIME type (defaults to text/plain)
-     * @return self
+     * @param  string  $uri  The URI of the resource
+     * @param  string  $text  The text content
+     * @param  string|null  $mimeType  The MIME type (defaults to text/plain)
      */
     public static function text(string $uri, string $text, ?string $mimeType = 'text/plain'): self
     {
@@ -65,10 +64,9 @@ class ResourceContent
     /**
      * Create a binary content resource
      *
-     * @param string $uri The URI of the resource
-     * @param string $blob The base64-encoded binary content
-     * @param string|null $mimeType The MIME type (defaults to application/octet-stream)
-     * @return self
+     * @param  string  $uri  The URI of the resource
+     * @param  string  $blob  The base64-encoded binary content
+     * @param  string|null  $mimeType  The MIME type (defaults to application/octet-stream)
      */
     public static function binary(string $uri, string $blob, ?string $mimeType = 'application/octet-stream'): self
     {
@@ -77,8 +75,6 @@ class ResourceContent
 
     /**
      * Convert the resource content to an array for JSON serialization
-     *
-     * @return array
      */
     public function toArray(): array
     {
@@ -104,8 +100,7 @@ class ResourceContent
     /**
      * Create a resource content from an array
      *
-     * @param array $data The data array
-     * @return self
+     * @param  array  $data  The data array
      */
     public static function fromArray(array $data): self
     {

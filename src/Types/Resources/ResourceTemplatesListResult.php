@@ -17,7 +17,7 @@ class ResourceTemplatesListResult
     /**
      * Create a new ResourceTemplatesListResult instance
      *
-     * @param ResourceTemplate[] $resourceTemplates The list of resource templates
+     * @param  ResourceTemplate[]  $resourceTemplates  The list of resource templates
      */
     public function __construct(array $resourceTemplates)
     {
@@ -26,13 +26,11 @@ class ResourceTemplatesListResult
 
     /**
      * Convert the result to an array for JSON serialization
-     *
-     * @return array
      */
     public function toArray(): array
     {
         return [
-            'resourceTemplates' => array_map(fn(ResourceTemplate $template) => $template->toArray(), $this->resourceTemplates),
+            'resourceTemplates' => array_map(fn (ResourceTemplate $template) => $template->toArray(), $this->resourceTemplates),
         ];
     }
 }

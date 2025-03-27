@@ -16,7 +16,7 @@ interface ResourceProviderInterface
     /**
      * List available resources
      *
-     * @param string|null $cursor Pagination cursor
+     * @param  string|null  $cursor  Pagination cursor
      * @return array Array with 'resources' (ResourceItem[]) and 'nextCursor' (string|null)
      */
     public function listResources(?string $cursor = null): array;
@@ -24,9 +24,9 @@ interface ResourceProviderInterface
     /**
      * Read a resource
      *
-     * @param string $uri The URI of the resource to read
+     * @param  string  $uri  The URI of the resource to read
      * @return ResourceContent[] The resource contents
-     * 
+     *
      * @throws \Exception If the resource cannot be read
      */
     public function readResource(string $uri): array;
@@ -41,7 +41,7 @@ interface ResourceProviderInterface
     /**
      * Check if a resource exists
      *
-     * @param string $uri The URI to check
+     * @param  string  $uri  The URI to check
      * @return bool True if the resource exists
      */
     public function resourceExists(string $uri): bool;

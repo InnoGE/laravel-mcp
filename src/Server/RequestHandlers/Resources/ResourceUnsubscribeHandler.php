@@ -28,8 +28,8 @@ class ResourceUnsubscribeHandler implements RequestHandler
     /**
      * Constructor
      *
-     * @param ResourceProviderInterface $resourceProvider The resource provider
-     * @param MCPServer $server The MCP server
+     * @param  ResourceProviderInterface  $resourceProvider  The resource provider
+     * @param  MCPServer  $server  The MCP server
      */
     public function __construct(ResourceProviderInterface $resourceProvider, MCPServer $server)
     {
@@ -40,7 +40,7 @@ class ResourceUnsubscribeHandler implements RequestHandler
     /**
      * Check if this handler can handle the given method
      *
-     * @param string $method The method name to check
+     * @param  string  $method  The method name to check
      * @return bool True if this handler can handle the method
      */
     public function canHandle(string $method): bool
@@ -51,8 +51,8 @@ class ResourceUnsubscribeHandler implements RequestHandler
     /**
      * Handle the resources/unsubscribe request
      *
-     * @param string $method The method name
-     * @param array|null $params The method parameters
+     * @param  string  $method  The method name
+     * @param  array|null  $params  The method parameters
      * @return array The response (empty object for unsubscriptions)
      *
      * @throws JsonRpcError If the request fails
@@ -63,7 +63,7 @@ class ResourceUnsubscribeHandler implements RequestHandler
             throw new JsonRpcError('Method not supported by this handler', JsonRpcError::METHOD_NOT_FOUND);
         }
 
-        if (!is_array($params) || !isset($params['uri'])) {
+        if (! is_array($params) || ! isset($params['uri'])) {
             throw new JsonRpcError('Missing required parameter: uri', JsonRpcError::INVALID_PARAMS);
         }
 
@@ -71,7 +71,7 @@ class ResourceUnsubscribeHandler implements RequestHandler
             $unsubscribeParams = ResourceUnsubscribeParams::fromArray($params);
 
             // Check if the resource exists
-            if (!$this->resourceProvider->resourceExists($unsubscribeParams->uri)) {
+            if (! $this->resourceProvider->resourceExists($unsubscribeParams->uri)) {
                 throw new JsonRpcError(
                     'Resource not found',
                     -32002,
@@ -81,14 +81,14 @@ class ResourceUnsubscribeHandler implements RequestHandler
 
             // Remove the subscription
             $this->server->removeResourceSubscription($unsubscribeParams->uri);
-            
+
             // Return an empty object as success response
             return [];
         } catch (JsonRpcError $e) {
             throw $e;
         } catch (\Exception $e) {
             throw new JsonRpcError(
-                'Failed to unsubscribe from resource: ' . $e->getMessage(),
+                'Failed to unsubscribe from resource: '.$e->getMessage(),
                 JsonRpcError::INTERNAL_ERROR
             );
         }

@@ -22,8 +22,8 @@ class ResourceListResult
     /**
      * Create a new ResourceListResult instance
      *
-     * @param ResourceItem[] $resources The list of resources
-     * @param string|null $nextCursor The cursor for the next page
+     * @param  ResourceItem[]  $resources  The list of resources
+     * @param  string|null  $nextCursor  The cursor for the next page
      */
     public function __construct(array $resources, ?string $nextCursor = null)
     {
@@ -33,13 +33,11 @@ class ResourceListResult
 
     /**
      * Convert the result to an array for JSON serialization
-     *
-     * @return array
      */
     public function toArray(): array
     {
         $result = [
-            'resources' => array_map(fn(ResourceItem $item) => $item->toArray(), $this->resources),
+            'resources' => array_map(fn (ResourceItem $item) => $item->toArray(), $this->resources),
         ];
 
         if ($this->nextCursor !== null) {

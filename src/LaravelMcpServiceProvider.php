@@ -4,7 +4,6 @@ namespace InnoGE\LaravelMcp;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use InnoGE\LaravelMcp\Commands\LaravelMcpCommand;
 
 class LaravelMcpServiceProvider extends PackageServiceProvider
 {

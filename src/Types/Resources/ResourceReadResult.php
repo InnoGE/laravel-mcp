@@ -17,7 +17,7 @@ class ResourceReadResult
     /**
      * Create a new ResourceReadResult instance
      *
-     * @param ResourceContent[] $contents The resource contents
+     * @param  ResourceContent[]  $contents  The resource contents
      */
     public function __construct(array $contents)
     {
@@ -26,13 +26,11 @@ class ResourceReadResult
 
     /**
      * Convert the result to an array for JSON serialization
-     *
-     * @return array
      */
     public function toArray(): array
     {
         return [
-            'contents' => array_map(fn(ResourceContent $content) => $content->toArray(), $this->contents),
+            'contents' => array_map(fn (ResourceContent $content) => $content->toArray(), $this->contents),
         ];
     }
 }

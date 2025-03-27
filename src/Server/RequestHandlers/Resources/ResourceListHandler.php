@@ -23,7 +23,7 @@ class ResourceListHandler implements RequestHandler
     /**
      * Constructor
      *
-     * @param ResourceProviderInterface $resourceProvider The resource provider
+     * @param  ResourceProviderInterface  $resourceProvider  The resource provider
      */
     public function __construct(ResourceProviderInterface $resourceProvider)
     {
@@ -33,7 +33,7 @@ class ResourceListHandler implements RequestHandler
     /**
      * Check if this handler can handle the given method
      *
-     * @param string $method The method name to check
+     * @param  string  $method  The method name to check
      * @return bool True if this handler can handle the method
      */
     public function canHandle(string $method): bool
@@ -44,8 +44,8 @@ class ResourceListHandler implements RequestHandler
     /**
      * Handle the resources/list request
      *
-     * @param string $method The method name
-     * @param array|null $params The method parameters
+     * @param  string  $method  The method name
+     * @param  array|null  $params  The method parameters
      * @return array The response
      *
      * @throws JsonRpcError If the request fails
@@ -62,14 +62,14 @@ class ResourceListHandler implements RequestHandler
             );
 
             $result = $this->resourceProvider->listResources($listParams->cursor);
-            
+
             return (new ResourceListResult(
                 $result['resources'],
                 $result['nextCursor'] ?? null
             ))->toArray();
         } catch (\Exception $e) {
             throw new JsonRpcError(
-                'Failed to list resources: ' . $e->getMessage(),
+                'Failed to list resources: '.$e->getMessage(),
                 JsonRpcError::INTERNAL_ERROR
             );
         }

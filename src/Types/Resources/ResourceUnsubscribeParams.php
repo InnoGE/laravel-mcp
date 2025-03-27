@@ -17,7 +17,7 @@ class ResourceUnsubscribeParams
     /**
      * Create a new ResourceUnsubscribeParams instance
      *
-     * @param string $uri The URI of the resource
+     * @param  string  $uri  The URI of the resource
      */
     public function __construct(string $uri)
     {
@@ -26,8 +26,6 @@ class ResourceUnsubscribeParams
 
     /**
      * Convert the params to an array for JSON serialization
-     *
-     * @return array
      */
     public function toArray(): array
     {
@@ -39,12 +37,11 @@ class ResourceUnsubscribeParams
     /**
      * Create params from an array
      *
-     * @param array $data The data array
-     * @return self
+     * @param  array  $data  The data array
      */
     public static function fromArray(array $data): self
     {
-        if (!isset($data['uri'])) {
+        if (! isset($data['uri'])) {
             throw new \InvalidArgumentException('URI is required for resource unsubscribe params');
         }
 

@@ -268,16 +268,15 @@ class MCPServer
 
     /**
      * Set of resource URIs that have subscriptions
-     * 
+     *
      * @var array<string, bool>
      */
     private array $resourceSubscriptions = [];
 
     /**
      * Add a resource subscription
-     * 
-     * @param string $uri The URI to subscribe to
-     * @return void
+     *
+     * @param  string  $uri  The URI to subscribe to
      */
     public function addResourceSubscription(string $uri): void
     {
@@ -286,9 +285,8 @@ class MCPServer
 
     /**
      * Remove a resource subscription
-     * 
-     * @param string $uri The URI to unsubscribe from
-     * @return void
+     *
+     * @param  string  $uri  The URI to unsubscribe from
      */
     public function removeResourceSubscription(string $uri): void
     {
@@ -297,8 +295,8 @@ class MCPServer
 
     /**
      * Check if a resource has a subscription
-     * 
-     * @param string $uri The URI to check
+     *
+     * @param  string  $uri  The URI to check
      * @return bool True if the resource has a subscription
      */
     public function hasResourceSubscription(string $uri): bool
@@ -308,7 +306,7 @@ class MCPServer
 
     /**
      * Get all resource subscriptions
-     * 
+     *
      * @return array<string> Array of URIs with subscriptions
      */
     public function getResourceSubscriptions(): array
@@ -318,9 +316,8 @@ class MCPServer
 
     /**
      * Send a notification that a resource has been updated
-     * 
-     * @param string $uri The URI of the resource that was updated
-     * @return void
+     *
+     * @param  string  $uri  The URI of the resource that was updated
      */
     public function notifyResourceUpdated(string $uri): void
     {
@@ -332,20 +329,17 @@ class MCPServer
 
     /**
      * Send a notification that the list of resources has changed
-     * 
-     * @return void
      */
     public function notifyResourceListChanged(): void
     {
         $notification = new ResourceListChangedNotification($this->protocol);
         $notification->notify();
     }
-    
+
     /**
      * Set up resource feature with the specified resource provider
-     * 
-     * @param ResourceProviderInterface $resourceProvider The resource provider
-     * @return void
+     *
+     * @param  ResourceProviderInterface  $resourceProvider  The resource provider
      */
     public function setupResourceFeature(ResourceProviderInterface $resourceProvider): void
     {
@@ -355,7 +349,7 @@ class MCPServer
         $this->registerRequestHandler(new ResourceTemplatesListHandler($resourceProvider));
         $this->registerRequestHandler(new ResourceSubscribeHandler($resourceProvider, $this));
         $this->registerRequestHandler(new ResourceUnsubscribeHandler($resourceProvider, $this));
-        
+
         // Register resource notification handlers
         $listChangedNotification = new ResourceListChangedNotification($this->protocol);
         $resourceUpdatedNotification = new ResourceUpdatedNotification($this->protocol);

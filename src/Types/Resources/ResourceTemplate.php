@@ -32,10 +32,10 @@ class ResourceTemplate
     /**
      * Create a new ResourceTemplate instance
      *
-     * @param string $uriTemplate The URI template of the resource
-     * @param string $name The name of the resource template
-     * @param string|null $description The description of the resource template
-     * @param string|null $mimeType The MIME type of the resource
+     * @param  string  $uriTemplate  The URI template of the resource
+     * @param  string  $name  The name of the resource template
+     * @param  string|null  $description  The description of the resource template
+     * @param  string|null  $mimeType  The MIME type of the resource
      */
     public function __construct(
         string $uriTemplate,
@@ -51,8 +51,6 @@ class ResourceTemplate
 
     /**
      * Convert the resource template to an array for JSON serialization
-     *
-     * @return array
      */
     public function toArray(): array
     {
@@ -75,8 +73,7 @@ class ResourceTemplate
     /**
      * Create a resource template from an array
      *
-     * @param array $data The data array
-     * @return self
+     * @param  array  $data  The data array
      */
     public static function fromArray(array $data): self
     {
