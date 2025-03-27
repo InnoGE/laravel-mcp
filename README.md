@@ -6,6 +6,8 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/innoge/laravel-mcp.svg?style=flat-square)](https://packagist.org/packages/innoge/laravel-mcp)
 
 A Laravel package that implements the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction), enabling seamless communication between your Laravel application and AI assistants or other systems through a standardized API.
+Please note that this package is still in development and not yet ready for production use.
+
 
 ## Installation
 
