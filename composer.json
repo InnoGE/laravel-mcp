@@ -1,6 +1,6 @@
 {
     "name": "innoge/laravel-mcp",
-    "description": "This is my package laravel-mcp",
+    "description": "A package for developing MCP Servers with Laravel.",
     "keywords": [
         "InnoGE",
         "laravel",
