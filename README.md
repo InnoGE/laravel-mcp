@@ -1,5 +1,10 @@
 # Laravel MCP (Model Context Protocol)
 
+> [!WARNING]
+> **This package is no longer maintained.**
+>
+> It was a proof of concept and is **not developed further**. It is now **100% replaced by the official [`laravel/mcp`](https://github.com/laravel/mcp) package**. Please use that instead.
+
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/innoge/laravel-mcp.svg?style=flat-square)](https://packagist.org/packages/innoge/laravel-mcp)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/innoge/laravel-mcp/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/innoge/laravel-mcp/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/innoge/laravel-mcp/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/innoge/laravel-mcp/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
